@@ -66,7 +66,7 @@ public class    TechJobs {
                 if (searchField.equals("all")) {
                     printJobs(findByValue(searchTerm.toUpperCase()));
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField.toUpperCase(), searchTerm.toUpperCase()));
+                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
             }
         }
@@ -115,9 +115,9 @@ public class    TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         if (someJobs.size() > 0) {
             System.out.println("********************");
-            for (HashMap<String, String> field : someJobs) {
+            for (HashMap<String, String> job : someJobs) {
 
-                for (Map.Entry<String, String> data : field.entrySet()) {
+                for (Map.Entry<String, String> data : job.entrySet()) {
                     System.out.println(data.getKey() + ":" + data.getValue());
                 }
                 System.out.println("********************");
